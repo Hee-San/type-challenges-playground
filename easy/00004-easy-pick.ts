@@ -29,7 +29,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type MyPick<T, K> = any
+type MyPick<T, K extends keyof T> = {
+  [U in K]: T[U]
+}
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'

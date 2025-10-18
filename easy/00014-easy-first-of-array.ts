@@ -22,7 +22,7 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type First<T extends any[]> = any
+type First<T extends any[]> = '0' extends keyof T ? T[0] : never
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
