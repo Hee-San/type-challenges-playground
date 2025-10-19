@@ -36,7 +36,7 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type DeepReadonly<T> = any
+type DeepReadonly<T> = T extends Function ? T : { readonly [P in keyof T]: DeepReadonly<T[P]> }
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
